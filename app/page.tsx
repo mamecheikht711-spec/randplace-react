@@ -2,6 +2,9 @@ import TopBar from '../components/TopBar';
 import MainHeader from '../components/MainHeader';
 import Navigation from '../components/Navigation';
 import Hero from '../components/Hero';
+import PopularMarkets from '../components/PopularMarkets';
+import TrustSection from '../components/TrustSection';
+import Footer from '../components/Footer';
 
 export default function Home() {
   return (
@@ -10,11 +13,9 @@ export default function Home() {
       <MainHeader />
       <Navigation />
       <Hero />
-      
-      {/* Espace vide pour l'instant */}
-      <div className="container" style={{ padding: '40px 0' }}>
-        <h2>Section Suivante : Marchés Populaires...</h2>
-      </div>
+      <PopularMarkets />
+      <TrustSection />
+      <Footer />
     </main>
   )
 }
