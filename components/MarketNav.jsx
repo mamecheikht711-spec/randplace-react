@@ -1,32 +1,32 @@
+"use client";
+import Link from 'next/link';
+
 export default function MarketNav() {
   const markets = [
-    { name: "Sandaga", icon: "fa-shopping-bag" },
-    { name: "Colobane", icon: "fa-tshirt" },
-    { name: "Kermel", icon: "fa-seedling" },
-    { name: "Serasse", icon: "fa-apple-alt" },
-    { name: "Thiaroye", icon: "fa-fish" },
-    { name: "HLM", icon: "fa-palette" },
-    { name: "Sea Plaza", icon: "fa-building" },
-    { name: "Almadies", icon: "fa-umbrella-beach" },
-    { name: "City Dia", icon: "fa-city" },
-    { name: "Luma", icon: "fa-store" },
+    { slug: "sandaga", name: "Sandaga", icon: "fa-shopping-bag" },
+    { slug: "colobane", name: "Colobane", icon: "fa-tshirt" },
+    { slug: "kermel", name: "Kermel", icon: "fa-leaf" },
+    { slug: "serasse", name: "Serasse", icon: "fa-drumstick-bite" },
+    { slug: "thiaroye", name: "Thiaroye", icon: "fa-fish" },
+    { slug: "hlm", name: "HLM", icon: "fa-palette" },
+    { slug: "seaplaza", name: "Sea Plaza", icon: "fa-building" },
+    { slug: "almadies", name: "Almadies", icon: "fa-umbrella-beach" },
+    { slug: "petersen", name: "Petersen", icon: "fa-mobile-alt" },
+    { slug: "soumbedioune", name: "Soumbedioune", icon: "fa-paint-brush" },
   ];
 
   return (
     <nav className="market-nav">
       <div className="container">
         <div className="market-nav-inner">
-          <button className="all-markets-btn">
-            <i className="fas fa-th"></i> Tous les marchés <i className="fas fa-arrow-right" style={{ fontSize: 12 }}></i>
-          </button>
-          {markets.map((m, i) => (
-            <div className="market-item" key={i}>
+          <Link href="/" className="all-markets-btn">
+            <i className="fas fa-th"></i> Tous les marchés
+          </Link>
+          {markets.map((m) => (
+            <Link href={`/markets/${m.slug}`} key={m.slug} className="market-item">
               <i className={`fas ${m.icon}`}></i> {m.name}
-            </div>
+            </Link>
           ))}
-          <div className="market-plus">
-            Plus <i className="fas fa-chevron-down" style={{ fontSize: 10 }}></i>
-          </div>
         </div>
       </div>
     </nav>

@@ -1,92 +1,116 @@
 // components/Hero.jsx
+import Link from 'next/link';
+
 export default function Hero() {
+  const markets = [
+    { slug: "sandaga", name: "Sandaga", icon: "fa-shopping-bag", desc: "Le plus grand marché" },
+    { slug: "colobane", name: "Colobane", icon: "fa-tshirt", desc: "Spécialiste fripe 6h-8h" },
+    { slug: "hlm", name: "HLM", icon: "fa-palette", desc: "Temple du wax" },
+    { slug: "kermel", name: "Kermel", icon: "fa-apple-alt", desc: "Fruits, légumes, fleurs" },
+    { slug: "serasse", name: "Serasse", icon: "fa-drumstick-bite", desc: "Viande et épices" },
+    { slug: "thiaroye", name: "Thiaroye", icon: "fa-fish", desc: "Poissons frais" },
+    { slug: "petersen", name: "Petersen", icon: "fa-mobile-alt", desc: "Quartier de la tech" },
+    { slug: "soumbedioune", name: "Soumbedioune", icon: "fa-paint-brush", desc: "Artisanat d'art" },
+    { slug: "seaplaza", name: "Sea Plaza", icon: "fa-building", desc: "Centre commercial" },
+    { slug: "almadies", name: "Almadies", icon: "fa-gem", desc: "Boutiques de luxe" },
+  ];
+
   return (
-    <section className="hero-section">
+    <section className="hero-banner">
+      <div className="hero-bg"></div>
+      <div className="hero-overlay"></div>
+
       <div className="container">
         <div className="hero-grid">
           
-          {/* --- SIDEBAR GAUCHE : Les Marchés --- */}
+          {/* SIDEBAR DES MARCHÉS */}
           <div className="hero-sidebar">
             <ul className="category-list">
-              <li className="cat-item">
-                <a href="/markets/sandaga" className="cat-link"><i className="fas fa-store"></i> Sandaga</a>
-                <i className="fas fa-chevron-right arrow"></i>
-              </li>
-              <li className="cat-item">
-                <a href="/markets/colobane" className="cat-link"><i className="fas fa-store"></i> Colobane</a>
-                <i className="fas fa-chevron-right arrow"></i>
-              </li>
-              <li className="cat-item">
-                <a href="/markets/hlm" className="cat-link"><i className="fas fa-store"></i> HLM</a>
-                <i className="fas fa-chevron-right arrow"></i>
-              </li>
-              <li className="cat-item">
-                <a href="/markets/tilene" className="cat-link"><i className="fas fa-store"></i> Tilène</a>
-                <i className="fas fa-chevron-right arrow"></i>
-              </li>
-              <li className="cat-item">
-                <a href="/markets/soumbedioune" className="cat-link"><i className="fas fa-store"></i> Soumbedioune</a>
-                <i className="fas fa-chevron-right arrow"></i>
-              </li>
-              <li className="cat-item">
-                <a href="/markets/petersen" className="cat-link"><i className="fas fa-store"></i> Petersen</a>
-                <i className="fas fa-chevron-right arrow"></i>
-              </li>
-              <li className="cat-item">
-                <a href="/markets/kermel" className="cat-link"><i className="fas fa-store"></i> Kermel</a>
-                <i className="fas fa-chevron-right arrow"></i>
-              </li>
+              {markets.map((m) => (
+                <li className="cat-item" key={m.slug}>
+                  <Link href={`/markets/${m.slug}`} className="cat-link">
+                    <div>
+                      <i className={`fas ${m.icon}`}></i> {m.name}
+                    </div>
+                    <span className="cat-desc">{m.desc}</span>
+                  </Link>
+                  <i className="fas fa-chevron-right arrow"></i>
+                </li>
+              ))}
             </ul>
+            <Link href="/markets" className="cat-all">
+              <i className="fas fa-list" style={{ marginRight: 6 }}></i> Voir tous les marchés
+            </Link>
           </div>
 
-          {/* --- CENTRE : Bannière Principale --- */}
-          <div className="hero-banner">
-            <div className="banner-content">
-              <span className="badge-hot">Hot Sale</span>
-              <h1 className="banner-title">
-                Tous les marchés<br/>
-                <span className="highlight">de Dakar</span>
-              </h1>
-              <p className="banner-desc">
-                +14 marchés réunis • Livraison partout • Vendeurs vérifiés
-              </p>
-              <button className="banner-btn">Explorer les marchés</button>
-            </div>
-            <div className="banner-shapes">
-              <div className="circle c1"></div>
-              <div className="circle c2"></div>
-            </div>
-          </div>
-
-          {/* --- DROITE : Carte Utilisateur --- */}
-          <div className="hero-card">
-            <div className="user-header">
-              <div className="user-avatar">G</div>
-              <div className="user-info">
-                <h3>Bienvenue sur GRANDPLACE</h3>
-                <p>Votre passerelle vers les marchés</p>
+          {/* CONTENU PRINCIPAL DU HERO */}
+          <div className="hero-content">
+            <div className="hero-welcome">Bienvenue sur GrandPlace 👋</div>
+            <h1 className="hero-title">
+              Le marché<br/><span>vient à vous !</span>
+            </h1>
+            <p className="hero-desc">
+              Commandez dans tous les marchés de Dakar et faites-vous livrer en un clic.
+            </p>
+            <div className="hero-features">
+              <div className="hero-feature">
+                <i className="fas fa-shield-alt"></i> Produits authentiques
+              </div>
+              <div className="hero-feature">
+                <i className="fas fa-check-circle"></i> Vendeurs vérifiés
+              </div>
+              <div className="hero-feature">
+                <i className="fas fa-truck"></i> Livraison rapide
+              </div>
+              <div className="hero-feature">
+                <i className="fas fa-lock"></i> Paiement sécurisé
               </div>
             </div>
-            <div className="user-stats">
-              <div className="stat-box">
-                <span className="num">2,000+</span>
-                <span className="label">Vendeurs</span>
-              </div>
-              <div className="stat-box">
-                <span className="num">14</span>
-                <span className="label">Marchés</span>
-              </div>
-              <div className="stat-box">
-                <span className="num">50K+</span>
-                <span className="label">Produits</span>
-              </div>
-            </div>
-            <div className="user-actions">
-              <button className="btn-card primary">Devenir Vendeur</button>
-              <button className="btn-card outline">Commencer à Acheter</button>
+            <div className="hero-buttons">
+              <Link href="/markets/sandaga" className="btn-explore">
+                Explorer les marchés <i className="fas fa-arrow-right"></i>
+              </Link>
+              <button className="btn-how">
+                <i className="fas fa-play-circle"></i> Comment ça marche
+              </button>
             </div>
           </div>
 
+          {/* CARDS DU HERO */}
+          <div className="hero-cards">
+            {/* Card Chat Mère Deugeur */}
+            <div className="hero-card-chat">
+              <div className="chat-header">
+                <div className="chat-avatar-wrapper">
+                  <img src="/image/mama-deugeur.png" alt="Mère Deugeur Moussor" />
+                  <span className="online-dot"></span>
+                </div>
+                <div>
+                  <div className="chat-name">Mère Deugeur</div>
+                  <div className="chat-status">Assistante GrandPlace</div>
+                </div>
+              </div>
+              <div className="chat-body">
+                Nanga def. Je suis là pour vous aider à trouver les meilleures affaires dans tous les marchés de Dakar.
+              </div>
+              <button className="chat-btn">
+                <i className="fas fa-comment"></i> Parler avec moi
+              </button>
+            </div>
+            
+            {/* Card Livraison */}
+            <div className="hero-card-delivery">
+              <div className="delivery-icon">
+                <i className="fas fa-motorcycle"></i>
+              </div>
+              <div className="delivery-info">
+                <div className="delivery-title">Livraison Express</div>
+                <div className="delivery-sub">Partout à Dakar et banlieue</div>
+                <div className="delivery-time">24h - 48h</div>
+              </div>
+            </div>
+          </div>
+          
         </div>
       </div>
     </section>

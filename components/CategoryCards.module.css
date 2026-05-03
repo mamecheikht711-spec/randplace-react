@@ -1,0 +1,203 @@
+/* components/CategoryCards.module.css */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.card {
+  position: relative;
+  background: white;
+  border-radius: 16px;
+  padding: 28px 24px 24px;
+  border: 1px solid #f0f0f0;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(255, 106, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.06);
+  border-color: #FF6A00;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #FF6A00, #FF8C00, #FF6A00);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.card:hover::before {
+  transform: scaleX(1);
+}
+
+.iconWrapper {
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #FFF3E8, #FFE0C0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.card:hover .iconWrapper {
+  background: linear-gradient(135deg, #FF6A00, #FF8C00);
+  transform: scale(1.05);
+}
+
+.emoji {
+  font-size: 30px;
+  transition: transform 0.3s ease;
+}
+
+.card:hover .emoji {
+  transform: scale(1.1);
+}
+
+.content {
+  flex: 1;
+}
+
+.name {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 6px;
+  line-height: 1.3;
+}
+
+.desc {
+  font-size: 13px;
+  color: #888;
+  line-height: 1.5;
+}
+
+.arrow {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: all 0.3s ease;
+}
+
+.card:hover .arrow {
+  opacity: 1;
+  transform: translateX(0);
+  background: #FF6A00;
+}
+
+.arrow span {
+  font-size: 14px;
+  color: #999;
+  transition: color 0.3s ease;
+}
+
+.card:hover .arrow span {
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 12px;
+  }
+  
+  .card {
+    padding: 20px 16px 16px;
+    gap: 10px;
+  }
+  
+  .iconWrapper {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+  }
+  
+  .emoji {
+    font-size: 24px;
+  }
+  
+  .name {
+    font-size: 14px;
+  }
+  
+  .desc {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  
+  .card {
+    padding: 16px 12px 12px;
+    border-radius: 12px;
+  }
+  
+  .iconWrapper {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+  }
+  
+  .emoji {
+    font-size: 22px;
+  }
+  
+  .arrow {
+    display: none;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .card {
+    background: #1a1a1a;
+    border-color: #2a2a2a;
+  }
+  
+  .card:hover {
+    border-color: #FF6A00;
+    box-shadow: 0 12px 32px rgba(255, 106, 0, 0.2), 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  .name {
+    color: #fff;
+  }
+  
+  .desc {
+    color: #999;
+  }
+  
+  .arrow {
+    background: #2a2a2a;
+  }
+  
+  .iconWrapper {
+    background: linear-gradient(135deg, #2a1a0a, #3a2a10);
+  }
+}
