@@ -9,37 +9,37 @@ export default function Hero() {
           <div className="hero-sidebar">
             <ul className="category-list">
               <li className="cat-item">
-                <i className="fas fa-store"></i> Sandaga
+                <a href="/markets/sandaga" className="cat-link"><i className="fas fa-store"></i> Sandaga</a>
                 <i className="fas fa-chevron-right arrow"></i>
               </li>
               <li className="cat-item">
-                <i className="fas fa-store"></i> Colobane
+                <a href="/markets/colobane" className="cat-link"><i className="fas fa-store"></i> Colobane</a>
                 <i className="fas fa-chevron-right arrow"></i>
               </li>
               <li className="cat-item">
-                <i className="fas fa-store"></i> HLM
+                <a href="/markets/hlm" className="cat-link"><i className="fas fa-store"></i> HLM</a>
                 <i className="fas fa-chevron-right arrow"></i>
               </li>
               <li className="cat-item">
-                <i className="fas fa-store"></i> Tilène
+                <a href="/markets/tilene" className="cat-link"><i className="fas fa-store"></i> Tilène</a>
                 <i className="fas fa-chevron-right arrow"></i>
               </li>
               <li className="cat-item">
-                <i className="fas fa-store"></i> Soumbedioune
+                <a href="/markets/soumbedioune" className="cat-link"><i className="fas fa-store"></i> Soumbedioune</a>
                 <i className="fas fa-chevron-right arrow"></i>
               </li>
               <li className="cat-item">
-                <i className="fas fa-store"></i> Petersen
+                <a href="/markets/petersen" className="cat-link"><i className="fas fa-store"></i> Petersen</a>
                 <i className="fas fa-chevron-right arrow"></i>
               </li>
               <li className="cat-item">
-                <i className="fas fa-store"></i> Kermel
+                <a href="/markets/kermel" className="cat-link"><i className="fas fa-store"></i> Kermel</a>
                 <i className="fas fa-chevron-right arrow"></i>
               </li>
             </ul>
           </div>
 
-          {/* --- CENTRE : Bannière --- */}
+          {/* --- CENTRE : Bannière Principale --- */}
           <div className="hero-banner">
             <div className="banner-content">
               <span className="badge-hot">Hot Sale</span>

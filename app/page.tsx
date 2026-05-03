@@ -1,21 +1,31 @@
-import TopBar from '../components/TopBar';
-import MainHeader from '../components/MainHeader';
-import Navigation from '../components/Navigation';
-import Hero from '../components/Hero';
-import PopularMarkets from '../components/PopularMarkets';
-import TrustSection from '../components/TrustSection';
-import Footer from '../components/Footer';
+import Header from '../components/Header';
+import MarketNav from '../components/MarketNav';
+import Sidebar from '../components/Sidebar';
+import HeroBanner from '../components/HeroBanner';
+import PromoSection from '../components/PromoSection';
+import PopularProducts from '../components/PopularProducts';
+import WhyChoose from '../components/WhyChoose';
+import ChatBot from '../components/ChatBot'; // <--- AJOUTE CECI
 
 export default function Home() {
   return (
     <main>
-      <TopBar />
-      <MainHeader />
-      <Navigation />
-      <Hero />
-      <PopularMarkets />
-      <TrustSection />
-      <Footer />
+      <Header />
+      <MarketNav />
+      <div className="container">
+        <div className="page-layout">
+          <Sidebar />
+          <div className="main-content">
+            <HeroBanner />
+            <PromoSection />
+            <PopularProducts />
+            <WhyChoose />
+          </div>
+        </div>
+      </div>
+      
+      {/* Le Chatbot remplace l'ancien widget */}
+      <ChatBot /> 
     </main>
   )
 }
